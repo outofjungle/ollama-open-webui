@@ -4,6 +4,8 @@ services:
     container_name: open-webui
     restart: unless-stopped
     network_mode: "host"
+    depends_on:
+      - ollama
     environment:
       - OLLAMA_BASE_URL=http://127.0.0.1:11434
     volumes:
