@@ -2,6 +2,7 @@ services:
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open-webui
+    restart: unless-stopped
     network_mode: "host"
     environment:
       - OLLAMA_BASE_URL=http://127.0.0.1:11434
@@ -11,6 +12,7 @@ services:
   ollama:
     image: dustynv/ollama:r36.4.0
     container_name: ollama
+    restart: unless-stopped
     runtime: nvidia
     network_mode: "host"
     shm_size: "8g"
